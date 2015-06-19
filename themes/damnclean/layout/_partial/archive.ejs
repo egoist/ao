@@ -1,0 +1,44 @@
+<%
+var title = '';
+if (page.category) title = page.category;
+if (page.tag) title = page.tag;
+if (page.archive){
+  if (page.year) title = page.year + (page.month ? '/' + page.month : '');
+  else title = __('archive_a');
+}
+%>
+<h2 class="archive-title<% if (page.tag){ %> tag<% } else if (page.category){ %> category<% } %>"><%= title %></h2>
+
+<% if (pagination == 2){ %>
+  <% page.posts.each(function(item){ %>
+    <%- partial('article', {item: item, index: true}) %>
+  <% }); %>
+
+  <%- partial('pagination') %>
+<% } else { %>
+    <% page.posts.each(function(item){ %>
+    <%
+      if(index && item.content.indexOf('\n')) {
+        item.excerpt = item.content.split('\n')[0];
+      }
+    %>
+      <article class="<%= item.layout %>">
+        <div class="post-content">
+          <header>
+            <%- partial('post/title', {item: item, index: true}) %>
+            <% if (item.layout != 'page'){ %>
+              <p class="published">
+                Published: <time datetime="<%= item.date.toDate().toISOString() %>"><%= item.date.format(config.date_format) %></time>
+              </p>
+            <% } %>
+          </header>
+          <div class="entry">
+            <%- item.excerpt %>
+          </div>
+          <footer>
+            <div class="clearfix"></div>
+          </footer>
+        </div>
+      </article>
+    <% }); %>
+<% } %>
