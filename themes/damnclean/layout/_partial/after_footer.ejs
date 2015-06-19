@@ -27,7 +27,9 @@ var disqus_shortname = '<%= config.disqus_shortname %>';
 <script src="<%- config.root %>fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
-  $('.fancybox').fancybox();
+  if($('.fancybox').length > 0) {
+    $('.fancybox').fancybox();
+  }
 })(jQuery);
 </script>
 <% } %>
