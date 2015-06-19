@@ -16,6 +16,7 @@
         </p>
       <% } %>
     </header>
+    
     <div class="entry">
       <% if (item.excerpt && index){ %>
         <%- item.excerpt %>
@@ -23,6 +24,12 @@
         <%- item.content %>
       <% } %>
     </div>
+    <% if (item.title == 'About'){ %>
+      <div class="about-contact">
+      <span><i class="fa fa-github"></i> <a href="https://github.com/<%=theme.github.username%>"><%=theme.github.username%></a></span>
+      <span><i class="fa fa-weibo"></i> <a href="http://weibo.com/n/<%=theme.weibo.nickname%>"><%=theme.weibo.nickname%></a></span>
+      </div>
+    <% } %>
     <footer>
       <% if (index){ %>
         <% if (item.excerpt && theme.excerpt_link){ %>

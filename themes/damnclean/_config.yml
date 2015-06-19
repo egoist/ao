@@ -12,12 +12,15 @@ widgets:
 excerpt_link:
 
 github:
-  username:  
+  username: aprilorange 
 
 twitter:
-  username: 
+  username: aprilorange0
   show_replies: false
   tweet_count: 5
+
+weibo:
+  nickname: 四月橘林
 
 addthis:
   enable: true
