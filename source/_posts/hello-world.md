@@ -8,7 +8,6 @@ Welcome to [Hexo](http://hexo.io/)! This is your very first post. Check [documen
 
 ``` bash
 $ hexo new "My New Post"
-console.log('l;alal')
 ```
 
 More info: [Writing](http://hexo.io/docs/writing.html)
